@@ -19,6 +19,8 @@ p {
   color: #606060;
   margin-top: 5px;
   margin-bottom: 2rem;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 h1 {
@@ -34,12 +36,21 @@ h1::after{
   width: 170px;
 }
 
+h1::before{
+  content: "";
+  display: block;
+  margin: 10px auto 20px;
+  background: #576562;
+  height: 3px;
+  width: 170px;
+}
+
 #h1-tag-Blogs::after{
   width: 285px;
 }
 
 h3,
-h4 {
+h4,h1,h2,h5,h6 {
   font-family: 'Ubuntu', sans-serif;
 }
 
@@ -48,15 +59,15 @@ h4 {
 
 .nav-item a {
   color: #f0eeee !important;
-  font-weight: bold;
+  font-weight: italic;
 }
 
 .nav-item:hover::after{
   content: "";
   display: block;
   margin: auto 10px;
-  background: white;
-  height: 2px;
+  background: black;
+  height: 10px;
   width: 100px;
 }
 
@@ -89,8 +100,8 @@ i {
 }
 
 .contactbutton button {
-  background-color: white;
-  color: #606060;
+  background-color: #606060;
+  color: white
   border-color: #606060;
   margin-top: -15px;
   border-radius: 0%;
@@ -130,45 +141,3 @@ i {
   color: white !important;
   border-color: transparent;
 } 
-
-
-/* ========= Footer ========= */
-
-/* footer{
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin-top: 100px;
-} */
-
-
-/* ======================= Media Queries==================*/
-
-@media(max-width: 1200px) {
-  .nav-item {
-    text-align: center !important;
-  }
-
-  .icon {
-    text-align: center !important;
-
-  }
-  .sect{
-    height: auto;
-    margin-top: 50px;
-  }
-
-  footer{
-    height: auto;
-    margin-top: 80px;
-  }
-}
-
-@media(max-width: 991px) {
-
-  .nav-item:hover::after{
-    background: #606060;
-  }
-
-}
