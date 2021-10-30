@@ -123,14 +123,12 @@ passport.deserializeUser(register_table.deserializeUser());
 
 // Delete Products Route
 app.delete('/delete/:id', async (req, res) => {
-
   if (req.isAuthenticated()) {
     await product_detail_table.deleteOne({ _id: req.params.id })
     res.redirect('/')
   } else {
     res.redirect('/login');
   }
-
 });
 
 
@@ -176,6 +174,23 @@ app.get('/update-product/:id', (req, res) => {
 
 
 
+app.get('/update-profile/:id', (req, res) => {
+
+  let id = req.params.id;
+
+  if (req.isAuthenticated() && req.user.type == "user") {
+    res.render('update-product', {
+      "user": req.user,
+      "id": id 
+    });
+  } else {
+    res.redirect('/logout');
+  }
+  
+});
+
+
+
 // GET Route for Login User
 app.get('/login', (req, res) => {
   res.render('login', {
@@ -198,7 +213,7 @@ app.get('/register', (req, res) => {
 // GET Route for Logout
 app.get('/logout', (req, res) => {
   req.logout();
-  res.redirect('/');
+  res.redirect('/login');
 });
 
 
